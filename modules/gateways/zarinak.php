@@ -88,7 +88,7 @@ function zarinak_link($params) {
 				break;
 		}
 		
-		$CallbackURL = $_POST['systemurl'] .'/modules/gateways/callback/zarinak.php?invoiceid='. $invoiceid;
+		$CallbackURL = 'http://' . $_SERVER['SERVER_NAME'] .'/modules/gateways/callback/zarinak.php?invoiceid='. $invoiceid;
 		try {
 			$client = new SoapClient('https://'. $mirror .'.zarinpal.com/pg/services/WebGate/wsdl', array('encoding' => 'UTF-8'));
 		
