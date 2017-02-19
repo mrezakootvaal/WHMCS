@@ -87,7 +87,7 @@ function zarinpalzg_link($params) {
 				break;
 		}
 		
-		$CallbackURL = $_POST['systemurl'] .'/modules/gateways/callback/zarinpalzg.php?invoiceid='. $invoiceid;
+		$CallbackURL = $systemurl .'/modules/gateways/callback/zarinpalzg.php?invoiceid='. $invoiceid;
 		try {
 			$client = new SoapClient('https://'. $mirror .'.zarinpal.com/pg/services/WebGate/wsdl', array('encoding' => 'UTF-8'));
 		
