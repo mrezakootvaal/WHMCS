@@ -3,6 +3,7 @@
     /*
      * @author Masoud Amini
      * @copyright 2013
+     * @updated 2017-03-02
      */
 	 
 	function redirect($url){
@@ -36,7 +37,15 @@
 			break;
 	}
 	
-	$CallbackURL = 'http://' . $_SERVER['SERVER_NAME']  .'/modules/gateways/callback/zarinpalzg.php?invoiceid='. $_POST['invoiceid'] .'&Amount='. $Amount;
+	// SSL Protocol for CallBackURL
+	$https = $_SERVER['HTTPS'];
+	if($https != NULL)
+	{
+		$CallbackURL = 'https://' . $_SERVER['SERVER_NAME']  .'/modules/gateways/callback/zarinpalzg.php?invoiceid='. $_POST['invoiceid'] .'&Amount='. $Amount;
+	}else{
+		$CallbackURL = 'http://' . $_SERVER['SERVER_NAME']  .'/modules/gateways/callback/zarinpalzg.php?invoiceid='. $_POST['invoiceid'] .'&Amount='. $Amount;
+	}
+
 	try {
 		$client = new SoapClient('https://'. $mirror .'.zarinpal.com/pg/services/WebGate/wsdl', array('encoding' => 'UTF-8'));
 	
