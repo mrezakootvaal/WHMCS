@@ -2,7 +2,7 @@
 /**
  * @author Masoud Amini
  * @copyright 2013
- * @updated 2017-03-02
+ * @since 2017-03-02
  */
 function zarinpalzg_config() {
     $configarray = array(
